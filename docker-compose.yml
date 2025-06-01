@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  pocketbase:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8087:8080"
+    volumes:
+      - pocketbase_data:/pb/pb_data
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Prague
+
+volumes:
+  pocketbase_data:
